@@ -13,6 +13,9 @@ services:
             - ./:/var/www
         networks:
             - stock-exchange
+        depends_on:
+            - postgres
+            - nginx
 
     postgres:
         image: postgres
@@ -20,7 +23,7 @@ services:
         volumes:
             - postgres-data:/var/lib/postgresql/data
         environment:
-            POSTGRES_DB: challengeom30
+            POSTGRES_DB: stock-exchange
             POSTGRES_PASSWORD: root
             POSTGRES_USER: root
             PGDATA: /var/lib/postgresql/data
@@ -42,7 +45,7 @@ services:
             - stock-exchange
 
     nginx:
-        image: nginx:1.17-alpine
+        image: nginx:alpine
         restart: unless-stopped
         ports:
             - 8000:80
