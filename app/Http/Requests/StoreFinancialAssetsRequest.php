@@ -13,7 +13,7 @@ class StoreFinancialAssetsRequest extends FormRequest
             'name' => 'required|string',
             'description' => 'nullable|string',
             'type' => 'required|in:stock,fii,firf',
-            'price' => 'required|numeric',
+            'price' => 'required|numeric|min:0.01',
         ];
     }
 

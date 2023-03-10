@@ -12,7 +12,7 @@ class UpdateFinancialAssetsRequest extends FormRequest
             'name' => 'nullable|string',
             'description' => 'nullable|string',
             'type' => 'nullable|in:stock,fii,firf',
-            'price' => 'nullable|numeric',
+            'price' => 'nullable|numeric|min:0.01',
         ];
     }
 
