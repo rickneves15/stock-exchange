@@ -16,4 +16,9 @@ class FinancialAssets extends Model
         'type',
         'price',
     ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
