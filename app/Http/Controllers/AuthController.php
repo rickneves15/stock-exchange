@@ -66,7 +66,7 @@ class AuthController extends Controller
         try {
             auth()->user()->tokens()->delete();
 
-            return $this->responseSuccess([], 'Logout successfully !');
+            return $this->responseSuccess(null, 'Logout successfully !');
         } catch (\Exception $e) {
             return $this->responseError(null, $e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
