@@ -54,7 +54,7 @@ class TransactionsController extends Controller
                 return $this->responseError(null, 'Financial Asset Not Found', Response::HTTP_NOT_FOUND);
             }
 
-            $sellAsset = $this->transactionService->buy($financialAssetId, $userId, $data);
+            $sellAsset = $this->transactionService->sell($financialAssetId, $userId, $data);
 
             return $this->responseSuccess($sellAsset, 'Successful Sell Of Financial Assets !');
         } catch (\Exception $e) {
