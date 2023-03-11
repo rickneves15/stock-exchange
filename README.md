@@ -9,8 +9,8 @@ Passo para rodar a API.
 
 1. Entre no terminal
 2. Rodar o comando
-    -. Linux: **`copy .env.example .env`** no terminal
-    -. Windows: **`cd  .env.example .env`** no terminal
+    - Linux: **`copy .env.example .env`** no terminal
+    - Windows: **`cd  .env.example .env`** no terminal
 3. Abra o copie o arquivo .env e configure as variáveis
     - DB_HOST
     - DB_PORT
