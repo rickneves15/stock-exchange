@@ -25,14 +25,13 @@ class TransactionsController extends Controller
             $data = $request->all();
             $userId = auth()->user()->id;
 
-            $financialAsset = $this->financialAssetsService->fetchOne($data['symbol']);
-            $financialAssetId = $financialAsset['id'];
+            $buyAsset = $this->transactionService->buy($userId, $data);
 
-            if (is_null($financialAsset)) {
-                return $this->responseError(null, 'Financial Asset Not Found', Response::HTTP_NOT_FOUND);
+            if (is_array($buyAsset)) {
+                if (key_exists('message', $buyAsset)) {
+                    return $this->responseSuccess(null, $buyAsset['message']);
+                }
             }
-
-            $buyAsset = $this->transactionService->buy($financialAssetId, $userId, $data);
 
             return $this->responseSuccess($buyAsset, 'Successful Buy Of Financial Assets !');
         } catch (\Exception $e) {
@@ -47,14 +46,13 @@ class TransactionsController extends Controller
             $data = $request->all();
             $userId = auth()->user()->id;
 
-            $financialAsset = $this->financialAssetsService->fetchOne($data['symbol']);
-            $financialAssetId = $financialAsset['id'];
+            $sellAsset = $this->transactionService->sell($userId, $data);
 
-            if (is_null($financialAsset)) {
-                return $this->responseError(null, 'Financial Asset Not Found', Response::HTTP_NOT_FOUND);
+            if (is_array($sellAsset)) {
+                if (key_exists('message', $sellAsset)) {
+                    return $this->responseSuccess(null, $sellAsset['message']);
+                }
             }
-
-            $sellAsset = $this->transactionService->sell($financialAssetId, $userId, $data);
 
             return $this->responseSuccess($sellAsset, 'Successful Sell Of Financial Assets !');
         } catch (\Exception $e) {
