@@ -55,6 +55,5 @@ class TransactionService
         $transaction = $this->findOne($sellAsset->id);
 
         return $transaction;
-        return;
     }
 }
