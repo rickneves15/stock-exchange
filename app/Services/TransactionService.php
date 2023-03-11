@@ -6,7 +6,6 @@ use App\Models\Transactions;
 
 class TransactionService
 {
-
     public function __construct(private WalletService $walletService, private FinancialAssetsService $financialAssetsService)
     {
     }
