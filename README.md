@@ -7,7 +7,7 @@
 
 Passo para rodar a API.
 
-1. Entre na pasta **`backend`**
+1. Entre no terminal
 2. Rodar o comando
     1. Linux: **`copy .env.example .env`** no terminal
     2. Windows: **`cd  .env.example .env`** no terminal
