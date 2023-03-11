@@ -2,15 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\Transactions;
 use App\Models\Wallet;
-use App\Traits\ResponseTrait;
-use Illuminate\Http\Response;
 
 class WalletService
 {
-    use ResponseTrait;
-
     private $typeFinancialAssets = [
         'stock' => "Stock",
         'fii' => "Real Estate Funds",

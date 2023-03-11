@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FinancialAssetsController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionsController;
 use App\Http\Controllers\WalletController;
 
@@ -22,4 +23,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('transactions/sell', [TransactionsController::class, 'sell']);
 
     Route::get('wallet', [WalletController::class, 'index']);
+
+    Route::get('report/history/{type}', [ReportController::class, 'history']);
+    Route::get('report/portfolio-distribution', [ReportController::class, 'portfolioDistribution']);
+    Route::get('report/portfolio-asset-distribution', [ReportController::class, 'portfolioAssetDistribution']);
 });
