@@ -19,7 +19,8 @@ class Transactions extends Model
     ];
 
     protected $casts = [
-        'date' => 'date:d/m/Y H:i:s'
+        'date' => 'date:d/m/Y H:i:s',
+        'price' => 'float',
     ];
 
     public function financialAsset()

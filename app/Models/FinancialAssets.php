@@ -17,6 +17,10 @@ class FinancialAssets extends Model
         'price',
     ];
 
+    protected $casts = [
+        'price' => 'float',
+    ];
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
